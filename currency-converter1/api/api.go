@@ -8,13 +8,17 @@ import (
 	"os"
 )
 
-// LatestRatesResponse Структура для хранения данных о курсах валют, полученных от Open Exchange Rates
+// LatestRatesResponse Структура для хранения данных о курсах валют, полученных от Open Exchange Rates.
+//
+// Base - Базовая валюта, по отношению к которой указаны курсы.
+// Rates - Карта, содержащая курсы валют по отношению к базовой валюте. Ключом карты является код валюты, значением - курс.
 type LatestRatesResponse struct {
 	Base  string             `json:"base"`
 	Rates map[string]float64 `json:"rates"`
 }
 
 // GetLatestRates получает актуальные курсы валют с Open Exchange Rates.
+//
 // Возвращает структуру LatestRatesResponse и ошибку (при наличии).
 func GetLatestRates(apiKey string) (*LatestRatesResponse, error) {
 	url := fmt.Sprintf("https://openexchangerates.org/api/latest.json?app_id=%s", apiKey)
@@ -42,6 +46,7 @@ func GetLatestRates(apiKey string) (*LatestRatesResponse, error) {
 }
 
 // GetApiKey получает API ключ из переменных окружения.
+//
 // Возвращает API ключ и флаг, указывающий на наличие ключа.
 func GetApiKey() (string, bool) {
 	apiKey := os.Getenv("OPENEXCHANGERATES_API_KEY")

@@ -9,6 +9,7 @@ import (
 )
 
 // DisplayRates отображает курсы валют в консоли.
+//
 // Принимает список курсов валют и базовую валюту.
 func DisplayRates(rates *currency.Rates) {
 	fmt.Println("Актуальные курсы валют:")
@@ -22,6 +23,7 @@ func DisplayRates(rates *currency.Rates) {
 }
 
 // GetBaseCurrency запрашивает у пользователя базовую валюту.
+//
 // Возвращает код базовой валюты (трехбуквенный код).
 func GetBaseCurrency() string {
 	var baseCurrency string
@@ -40,6 +42,7 @@ func GetBaseCurrency() string {
 }
 
 // GetTargetCurrencies запрашивает у пользователя список целевых валют.
+//
 // Возвращает слайс строк с кодами валют.
 func GetTargetCurrencies() []string {
 	var currenciesStr string
